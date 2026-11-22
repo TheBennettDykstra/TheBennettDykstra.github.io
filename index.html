@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bennett Dykstra Photography</title>
+<meta name="description" content="Sports, concert, car, portrait and brand photography by Bennett Dykstra in Grand Rapids, Michigan.">
+<meta property="og:title" content="Bennett Dykstra Photography">
+<meta property="og:description" content="Sports, concerts, cars, people and brands. Grand Rapids, Michigan.">
+<meta name="theme-color" content="#F3EFE8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23141413'/%3E%3Ctext x='29' y='45' font-family='Georgia,serif' font-style='italic' font-size='38' fill='%23F3EFE8' text-anchor='middle'%3EB%3C/text%3E%3Ccircle cx='47' cy='42' r='4' fill='%23D40000'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..600,0..100;1,9..144,300..500,0..100&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: quiet, confident, personal. The photographs talk; the interface whispers.
+   IDEA: a light table. A huge signature sits on paper and real frames are laid over it, edge-numbered like a contact sheet.
+   PICTURE: his own frames floating over the wordmark; later, an ink "index" whose background becomes the work on hover.
+   COLOUR/TYPE: Paper #F3EFE8, Ink #141413, Film Amber #D40000, Shadow Teal #1F3A3D. Fraunces (light, soft) + Inter.
+   LAYOUT: hero, statement, selected work, index, about, inquire, signature footer. Everything stacks under 760px. */
+:root{color-scheme:light dark;
+  --paper:light-dark(#F3EFE8,#121211);--ink:light-dark(#141413,#EEE9E0);
+  --soft:light-dark(#6E6961,#A39E95);--line:light-dark(#DDD6CA,#2B2A27);
+  --amber:#D40000;--teal:#1F3A3D;--night:light-dark(#121211,#0A0A09);--cream:#F3EFE8;
+  --serif:Fraunces,"Iowan Old Style",Georgia,serif;--sans:Inter,system-ui,-apple-system,sans-serif;
+  --pad:max(5vw,20px)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-underline-offset:3px;text-decoration-thickness:1px}
+button{font:inherit;color:inherit}
+[hidden]{display:none!important}
+.serif{font-family:var(--serif);font-variation-settings:"SOFT" 60}
+h1,h2,h3{font-family:var(--serif);font-weight:350;font-variation-settings:"SOFT" 60;line-height:1.02;margin:0;text-wrap:balance}
+h2{font-size:clamp(36px,5vw,64px);letter-spacing:-.015em}
+h2 em,h1 em{font-style:italic;font-weight:300}
+p{margin:0 0 1em;max-width:60ch}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:var(--pad)}
+.small{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.grain{position:relative;isolation:isolate}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:80;opacity:.1;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- header ---------- */
+.top{position:fixed;inset:0 0 auto;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px var(--pad);transition:background .35s,color .35s,box-shadow .35s}
+.top.solid{background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.sig{font-family:var(--serif);font-style:italic;font-weight:400;font-size:21px;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.sig b{font-weight:400;color:var(--amber);font-style:normal}
+.links{display:flex;align-items:center;gap:clamp(6px,2vw,26px)}
+.links a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:12px 2px;min-height:44px;display:inline-flex;align-items:center;position:relative}
+.links a:not(.pill)::after{content:"";position:absolute;left:2px;right:2px;bottom:9px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.links a:not(.pill):hover::after{transform:scaleX(1)}
+.pill{border:1px solid currentColor;border-radius:999px;padding:0 18px!important;min-height:40px!important}
+.pill:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:max(100svh,640px);padding:96px var(--pad) 70px;overflow:hidden}
+.word{position:absolute;left:var(--pad);right:var(--pad);top:50%;transform:translateY(-54%);margin:0;
+  font-size:clamp(84px,15.2vw,236px);line-height:.86;font-weight:300;letter-spacing:-.035em;font-variation-settings:"SOFT" 100,"opsz" 144;color:var(--ink)}
+.word span{display:block}
+.word span+span{padding-left:23%;font-style:italic;letter-spacing:-.03em}
+.float{position:absolute;margin:0;z-index:2;will-change:transform}
+.float img{width:100%;height:100%;object-fit:cover;box-shadow:0 30px 60px -34px rgba(20,20,19,.55)}
+.float figcaption{display:flex;justify-content:space-between;gap:10px;white-space:nowrap;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);padding-top:7px}
+.float figcaption span{overflow:hidden;text-overflow:ellipsis}
+.float figcaption i{font-style:normal;color:var(--amber)}
+.f1{width:clamp(150px,15vw,232px);aspect-ratio:2/3;top:12%;right:7%}
+.f2{width:clamp(200px,21vw,310px);aspect-ratio:3/2;bottom:4%;left:27%}
+.f3{width:clamp(120px,11vw,165px);aspect-ratio:2/3;top:13%;left:48.5%}
+.f4{width:clamp(170px,17vw,250px);aspect-ratio:3/2;bottom:15%;right:5%}
+.f5{width:clamp(110px,10vw,150px);aspect-ratio:2/3;bottom:8%;left:var(--pad)}
+.f1 img,.f3 img,.f5 img,.f2 img,.f4 img{height:auto;aspect-ratio:inherit}
+.corner{position:absolute;bottom:22px;z-index:3;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.corner.l{left:var(--pad)}.corner.r{right:var(--pad);display:flex;align-items:center;gap:10px}
+.corner.r::after{content:"";width:1px;height:28px;background:currentColor;animation:drip 2.4s ease-in-out infinite;transform-origin:top}
+@keyframes drip{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+.hero-intro{position:absolute;top:110px;left:var(--pad);z-index:3;max-width:290px;font-size:15px;line-height:1.55;color:var(--soft)}
+.hero-intro strong{color:var(--ink);font-weight:500}
+
+/* ---------- statement ---------- */
+.statement{padding:clamp(80px,12vw,170px) var(--pad) clamp(60px,8vw,110px);text-align:center}
+.statement p{margin:0 auto;max-width:27ch;font-family:var(--serif);font-size:clamp(30px,4.2vw,56px);line-height:1.12;font-weight:300;font-variation-settings:"SOFT" 80;letter-spacing:-.015em;text-wrap:balance}
+.statement p em{color:var(--amber)}
+.statement .small{margin-top:28px;display:block}
+
+/* ---------- work ---------- */
+.workhead{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;padding-bottom:26px;margin-bottom:34px;border-bottom:1px solid var(--line)}
+.filters{display:flex;gap:22px;flex-wrap:wrap}
+.filters button{background:none;border:0;padding:10px 0;min-height:44px;cursor:pointer;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);position:relative}
+.filters button sup{font-size:9px;margin-left:3px;letter-spacing:0}
+.filters button[aria-pressed=true]{color:var(--ink)}
+.filters button[aria-pressed=true]::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:var(--amber)}
+.grid{display:grid;grid-template-columns:repeat(var(--cols,3),minmax(0,1fr));gap:0 clamp(14px,1.6vw,24px);align-items:start}
+.col{display:grid;gap:clamp(26px,3vw,40px)}
+.span2{grid-column:span 2;display:grid;gap:clamp(26px,3vw,40px);align-content:start}
+.sub{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(14px,1.6vw,24px);align-items:start}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(26px,3vw,40px) clamp(14px,1.6vw,24px);margin:clamp(40px,5vw,72px) 0}
+.pair .shot img{aspect-ratio:3/2!important;object-fit:cover}
+.shot{margin:0}
+.shot button{display:block;width:100%;padding:0;border:0;background:#0d0d0c;cursor:zoom-in;overflow:hidden}
+.shot img{width:100%;transition:transform 1.1s cubic-bezier(.2,.7,.2,1),opacity .6s}
+.shot button:hover img{transform:scale(1.035)}
+.shot figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding-top:12px}
+.shot figcaption b{font-family:var(--serif);font-weight:400;font-size:18px;line-height:1.25;font-variation-settings:"SOFT" 60}
+.shot figcaption span{display:block;font-size:12.5px;color:var(--soft);margin-top:3px}
+.shot figcaption i{font-style:normal;font-size:11px;letter-spacing:.1em;color:var(--amber);white-space:nowrap}
+.morelink{display:flex;justify-content:center;padding:20px 0 0}
+.morelink a{font-size:12px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--amber);padding:8px 0}
+
+/* ---------- index (services) ---------- */
+.index{background:var(--night);color:var(--cream);margin-top:clamp(80px,10vw,140px);overflow:hidden}
+.index .bg{position:absolute;inset:0;z-index:0}
+.index .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);filter:saturate(.9) brightness(.42) blur(1.5px);transition:opacity .8s,transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.index .bg img.on{opacity:1;transform:scale(1)}
+.index .inner{position:relative;z-index:2;padding:clamp(70px,9vw,130px) var(--pad)}
+.index .lead{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:end;max-width:1320px;margin:0 auto 40px}
+.index .lead p{color:#B9B3A8;max-width:44ch;margin:0}
+.index .small{color:#9A948A}
+.cats{list-style:none;margin:0 auto;padding:0;max-width:1320px}
+.cats li{border-top:1px solid rgba(243,239,232,.14)}
+.cats li:last-child{border-bottom:1px solid rgba(243,239,232,.14)}
+.cat{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,330px);gap:24px;align-items:center;width:100%;background:none;border:0;text-align:left;cursor:pointer;padding:clamp(10px,1.4vw,18px) 0;color:inherit}
+.cat .name{font-family:var(--serif);font-weight:300;font-size:clamp(46px,8.4vw,128px);line-height:1;letter-spacing:-.03em;font-variation-settings:"SOFT" 100,"opsz" 144;transition:transform .7s cubic-bezier(.2,.7,.2,1),color .4s;display:inline-block}
+.cats li:nth-child(2) .name{padding-left:9%}.cats li:nth-child(3) .name{padding-left:4%}.cats li:nth-child(4) .name{padding-left:14%}.cats li:nth-child(5) .name{padding-left:6%}
+.cat .desc{font-size:15px;line-height:1.55;color:#B9B3A8;opacity:.75;transition:opacity .4s}
+.cat .go{display:inline-block;margin-top:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);opacity:0;transition:opacity .4s}
+.cat:hover .go,.cat:focus-visible .go,.cat.on .go{opacity:1}
+.cat .desc small{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+.cat:hover .name,.cat:focus-visible .name,.cat.on .name{transform:translateX(18px);font-style:italic}
+.cat:hover .desc,.cat.on .desc{opacity:1}
+.cats:hover .cat:not(:hover) .name{color:rgba(243,239,232,.35)}
+
+/* ---------- about ---------- */
+.about{padding-block:clamp(90px,12vw,170px)}
+.about .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,7vw,110px);align-items:center}
+.duo{position:relative;padding:0 14% 22% 0}
+.duo figure{margin:0}
+.duo .main img{width:100%;aspect-ratio:9/10;object-fit:cover;object-position:50% 0}
+.duo .side{position:absolute;right:0;bottom:0;width:46%;transform:rotate(2.2deg);background:#F7F3EC;padding:9px 9px 34px;box-shadow:0 26px 50px -26px rgba(20,20,19,.55);border:1px solid #DDD6CA}
+.duo .side img{aspect-ratio:1;object-fit:cover;width:100%}
+.duo .side figcaption{position:absolute;left:12px;bottom:8px;font-family:var(--serif);font-style:italic;font-size:15px;color:#6E6961}
+.about h2{margin:14px 0 26px}
+.about .body p{font-size:17px}
+.about .body .promise{margin:30px 0;padding:22px 0;border-block:1px solid var(--line);font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(22px,2.3vw,28px);line-height:1.35;font-variation-settings:"SOFT" 80;text-wrap:balance;max-width:30ch}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.facts b{display:block;font-family:var(--serif);font-weight:400;font-size:19px}
+.facts span{display:block;font-size:13.5px;line-height:1.45;color:var(--soft);margin-top:2px}
+
+/* ---------- inquire ---------- */
+.inquire{background:var(--teal);color:var(--cream);padding-block:clamp(80px,10vw,150px)}
+.inquire .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(36px,6vw,100px)}
+.inquire .small{color:#A9BAB7}
+.inquire h2{margin:14px 0 22px}
+.inquire .lede{color:#C9D3D1;font-size:17px}
+.direct{margin-top:34px;display:grid;gap:2px}
+.direct a,.direct div{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px;align-items:baseline;padding:16px 0;border-top:1px solid rgba(243,239,232,.16);text-decoration:none}
+.direct a:last-child,.direct div:last-child{border-bottom:1px solid rgba(243,239,232,.16)}
+.direct small{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A9BAB7}
+.direct span{font-family:var(--serif);font-size:20px;overflow-wrap:anywhere}
+.direct a:hover span{color:#FF6B5E}
+form{display:grid;gap:22px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+label{display:grid;gap:4px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#A9BAB7}
+input,select,textarea{font:16px/1.4 var(--sans);letter-spacing:0;text-transform:none;color:var(--cream);background:transparent;border:0;border-bottom:1px solid rgba(243,239,232,.3);border-radius:0;padding:10px 0;min-height:46px;width:100%}
+select{appearance:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23D40000' stroke-width='1.5'/%3E%3C/svg%3E") right 4px center no-repeat}
+select option{color:#141413}
+input:focus,select:focus,textarea:focus{outline:none;border-bottom-color:var(--amber)}
+textarea{min-height:110px;resize:vertical}
+::placeholder{color:rgba(243,239,232,.38)}
+.uses{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.uses label{display:inline-flex;align-items:center;gap:0;cursor:pointer}
+.uses input{position:absolute;opacity:0;width:1px;height:1px;min-height:0}
+.uses span{border:1px solid rgba(243,239,232,.3);border-radius:999px;padding:9px 15px;font-size:13px;letter-spacing:.02em;text-transform:none;color:var(--cream);min-height:40px;display:inline-flex;align-items:center}
+.uses input:checked+span{background:var(--cream);color:#141413;border-color:var(--cream)}
+.uses input:focus-visible+span{outline:2px solid var(--amber);outline-offset:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 26px;border-radius:999px;border:1px solid var(--cream);background:transparent;color:var(--cream);font:500 14px var(--sans);letter-spacing:.04em;cursor:pointer;text-decoration:none}
+.btn.fill{background:var(--amber);border-color:var(--amber);color:#fff}
+.btn:hover{transform:translateY(-1px)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.out{background:rgba(0,0,0,.22);border-left:2px solid var(--amber);padding:18px 20px;font-size:14.5px;white-space:pre-wrap;color:#E6EAE9}
+.note{font-size:13px;color:#A9BAB7;margin:0}
+
+/* ---------- footer ---------- */
+footer{background:var(--night);color:#A39E95;padding:clamp(60px,8vw,110px) var(--pad) 26px;overflow:hidden}
+footer .big{font-family:var(--serif);font-weight:300;font-style:italic;color:var(--cream);font-size:clamp(56px,13vw,210px);line-height:.9;letter-spacing:-.035em;font-variation-settings:"SOFT" 100,"opsz" 144;margin:0 0 50px;white-space:nowrap}
+footer .big b{font-weight:300;font-style:normal;color:var(--amber)}
+.feet{display:flex;justify-content:space-between;gap:16px 30px;flex-wrap:wrap;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;border-top:1px solid #2B2A27;padding-top:22px}
+.feet a{text-decoration:none}.feet a:hover{color:var(--cream)}
+
+/* ---------- lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:90;background:#0c0c0b;color:var(--cream);display:grid;grid-template-rows:auto minmax(0,1fr) auto;opacity:0;pointer-events:none;transition:opacity .35s}
+.lb.open{opacity:1;pointer-events:auto}
+.lb header{display:flex;justify-content:space-between;align-items:center;padding:14px var(--pad);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#A39E95}
+.lb .stage{display:flex;align-items:center;justify-content:center;padding:0 clamp(56px,7vw,110px);min-height:0}
+.lb img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;box-shadow:0 40px 80px -40px #000}
+.lb footer{background:none;padding:16px var(--pad) 22px;text-align:center}
+.lb footer b{display:block;font-family:var(--serif);font-weight:400;font-size:22px;color:var(--cream)}
+.lb footer span{font-size:13px;color:#A39E95;letter-spacing:0;text-transform:none}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(243,239,232,.3);background:rgba(18,18,17,.5);cursor:pointer;display:grid;place-items:center}
+.lb .nav:hover{border-color:var(--amber)}
+.lb .prev{left:max(2vw,8px)}.lb .next{right:max(2vw,8px)}
+.lb .x{background:none;border:0;cursor:pointer;min-height:44px;min-width:44px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream)}
+.lb svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5}
+
+/* ---------- motion ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .word span{animation:rise 1.3s cubic-bezier(.2,.7,.2,1) both}
+  .word span+span{animation-delay:.12s}
+  .float{animation:fade 1.4s .35s cubic-bezier(.2,.7,.2,1) both}
+  .f2{animation-delay:.5s}.f3{animation-delay:.6s}.f4{animation-delay:.7s}.f5{animation-delay:.8s}
+  @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+  @keyframes fade{from{opacity:0;translate:0 30px}to{opacity:1;translate:0 0}}
+}
+@media (prefers-reduced-motion:reduce){.corner.r::after{animation:none}}
+
+/* ---------- narrow ---------- */
+@media (max-width:1000px){
+  .f3{display:none}
+  .hero-intro{max-width:260px}
+}
+@media (min-width:761px) and (max-width:1000px){
+  .hero{min-height:min(100svh,940px)}
+  .word{font-size:19.5vw}
+  .f1{top:9%;right:6%}
+  .f4{bottom:12%}
+  .f2{left:30%}
+}
+@media (max-width:760px){
+  .links a:not(.pill){display:none}
+  .hero{min-height:0;padding:96px var(--pad) 40px;display:flex;flex-direction:column}
+  .hero-intro{position:static;order:2;max-width:none;margin:22px 0 28px;font-size:16px}
+  .word{position:static;transform:none;order:1;font-size:clamp(64px,24vw,150px)}
+  .word span+span{padding-left:14%}
+  .floats{order:3;display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+  .float{position:static;width:auto!important}
+  .f3,.f5{display:none}
+  .f1{grid-row:span 2}
+  .f4{margin-top:0}
+  .float figcaption{display:none}
+  .cat .go{opacity:1}
+  .corner{position:static;order:4;margin-top:22px}
+  .corner.r{display:none}
+  .index .cat{grid-template-columns:minmax(0,1fr);gap:4px;padding:16px 0}
+  .cats li .name{padding-left:0!important}
+  .cat .desc{opacity:1;font-size:14.5px}
+  .about .wrap,.inquire .wrap{grid-template-columns:minmax(0,1fr)}
+  .duo{max-width:480px}
+  .facts{grid-template-columns:minmax(0,1fr)}
+  .row2{grid-template-columns:minmax(0,1fr)}
+  .direct a,.direct div{grid-template-columns:minmax(0,1fr);gap:2px}
+  .lb .stage{padding:0 10px}
+  .lb .nav{top:auto;bottom:18px;transform:none}
+  .lb footer{padding-inline:76px}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <a class="sig" href="#home">Bennett Dykstra<b>.</b></a>
+  <nav class="links" aria-label="Main">
+    <a href="#work">Work</a><a href="#index">Services</a><a href="#about">About</a><a class="pill" href="#inquire">Inquire</a>
+  </nav>
+</header>
+
+<main id="home">
+  <!-- HERO: wordmark with frames laid over it -->
+  <section class="hero grain" aria-label="Introduction">
+    <h1 class="word" aria-label="Bennett Dykstra Photography"><span>Bennett</span><span>Dykstra</span></h1>
+    <p class="hero-intro"><strong>Photographer in Grand Rapids, Michigan.</strong> Sports, concerts, cars, people and brands, shot and edited by a Cornerstone athlete who knows the sideline from both sides.</p>
+    <div class="floats">
+      <figure class="float f1" data-speed="-0.10"><img src="img/jwb-2.jpg" alt="Jack Wharff Band on a blue-lit stage"><figcaption><span>Jack Wharff</span><i>15A</i></figcaption></figure>
+      <figure class="float f2" data-speed="0.06"><img src="img/wvb.jpg" alt="Cornerstone volleyball players with motion-blurred teammates behind"><figcaption><span>Volleyball</span><i>23A</i></figcaption></figure>
+      <figure class="float f3" data-speed="-0.16"><img src="img/ian-harrison.jpg" alt="Ian Harrison singing with an acoustic guitar"><figcaption><span>Ian Harrison</span><i>14A</i></figcaption></figure>
+      <figure class="float f4" data-speed="0.12"><img src="img/wsoc-2.jpg" alt="Cornerstone soccer player at dusk under stadium lights"><figcaption><span>Soccer</span><i>22A</i></figcaption></figure>
+      <figure class="float f5" data-speed="-0.04"><img src="img/jwb-1.jpg" alt="Jack Wharff Band drummer under a spotlight"><figcaption><span>Drums</span><i>16A</i></figcaption></figure>
+    </div>
+    <div class="corner l">Grand Rapids · West Michigan</div>
+    <div class="corner r">Scroll</div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section class="statement grain">
+    <p class="reveal">I photograph the things I love, <em>games</em>, <em>events</em>, <em>shows</em>, <em>cars</em>, and <em>natural beauty</em>, and I want to capture those frames for you too.</p>
+    <span class="small reveal">Personal and professional · Without the inflated price</span>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" class="wrap" aria-labelledby="work-h">
+    <div class="workhead">
+      <div><span class="small">Fall 2026</span><h2 id="work-h" style="margin-top:10px">Selected <em>work</em></h2></div>
+      <div class="filters" role="group" aria-label="Filter work" id="filters"></div>
+    </div>
+    <div class="gallery" id="grid"></div>
+    <div class="morelink"><a href="https://www.instagram.com/thebennettdykstra_photography/">Full galleries on Instagram</a></div>
+  </section>
+
+  <!-- INDEX / SERVICES -->
+  <section id="index" class="index dark grain" aria-labelledby="index-h">
+    <div class="bg" id="catbg" aria-hidden="true"></div>
+    <div class="inner">
+      <div class="lead">
+        <div><span class="small">What I shoot</span><h2 id="index-h" style="margin-top:10px">The <em>index</em></h2></div>
+        <p>Every shoot starts with your input: the vibe, the moments that matter, how you'll use the photos. Then I shoot it and edit it to match.</p>
+      </div>
+      <ul class="cats" id="cats"></ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="duo reveal">
+        <figure class="main"><img src="img/about-courtside-crop.jpg" alt="Bennett sitting courtside with a telephoto lens during a volleyball match"></figure>
+        <figure class="side"><img src="img/about-lake.jpg" alt="Bennett on the rocks along the Lake Michigan shore"><figcaption>Off the clock</figcaption></figure>
+      </div>
+      <div class="body reveal">
+        <span class="small">About</span>
+        <h2 id="about-h">Hi, I'm <em>Bennett.</em></h2>
+        <p>I'm a student athlete at Cornerstone University in Grand Rapids, studying business and sprinting for the track team. I'm also a car enthusiast, traveler and outdoorsman, and I started out photographing the things I love. Now I want to capture those frames for other people.</p>
+        <p>I'm not trying to be the biggest photographer in one niche or chase followers. I want to deliver quality work without the inflated cost photography has picked up, and to stay flexible, personal and professional on every job, from a conference game to a senior session. I want your input and your ideas, so your photos are yours.</p>
+        <p class="promise">If you aren't satisfied with your photos, I'll re-edit or reshoot them. No problem.</p>
+        <div class="facts">
+          <div><b>Grand Rapids</b><span>Home base, West Michigan</span></div>
+          <div><b>Cornerstone</b><span>Athlete and team photographer</span></div>
+          <div><b>Shot + edited</b><span>Every frame, by me</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INQUIRE -->
+  <section id="inquire" class="inquire grain" aria-labelledby="inq-h">
+    <div class="wrap">
+      <div>
+        <span class="small">Inquire</span>
+        <h2 id="inq-h">Tell me about <em>the shoot.</em></h2>
+        <p class="lede">For a quote, to book a game, show or session, or to get your photos and a tag. I reply fastest on Instagram.</p>
+        <div class="direct" id="direct">
+          <a href="https://www.instagram.com/thebennettdykstra_photography/"><small>Instagram</small><span>@thebennettdykstra_photography</span></a>
+          <a href="https://www.instagram.com/thebennettdykstra/"><small>Personal</small><span>@thebennettdykstra</span></a>
+          <div><small>Based in</small><span>Grand Rapids, Michigan</span></div>
+        </div>
+      </div>
+      <form id="inq" novalidate>
+        <div class="row2">
+          <label>Your name<input id="f-name" autocomplete="name" required></label>
+          <label>Email or Instagram<input id="f-reach" placeholder="So I can reply"></label>
+        </div>
+        <div class="row2">
+          <label>Shoot type<select id="f-type">
+            <option>Sports</option><option>Concert or event</option><option>Cars</option><option>Personals or seniors</option><option>Brand or business</option><option>Something else</option>
+          </select></label>
+          <label>Date or timeframe<input id="f-date" placeholder="e.g. late March"></label>
+        </div>
+        <label>Location<input id="f-loc" placeholder="Venue, field or city"></label>
+        <fieldset style="border:0;padding:0;margin:0">
+          <legend class="small" style="color:#A9BAB7;font-size:11px;margin-bottom:4px">How you'll use the photos</legend>
+          <div class="uses" id="uses">
+            <label><input type="checkbox" value="social"><span>Social</span></label>
+            <label><input type="checkbox" value="website"><span>Website</span></label>
+            <label><input type="checkbox" value="print"><span>Print</span></label>
+            <label><input type="checkbox" value="personal keepsakes"><span>Personal</span></label>
+            <label><input type="checkbox" value="team or school media"><span>Team / school</span></label>
+          </div>
+        </fieldset>
+        <label>What do you have in mind?<textarea id="f-msg" placeholder="The vibe, the team or event, anything you've pictured"></textarea></label>
+        <div class="btns"><button class="btn fill" type="submit">Write my inquiry</button></div>
+        <div id="f-result" hidden>
+          <div class="out" id="f-out" aria-live="polite"></div>
+          <div class="btns" style="margin-top:12px">
+            <a class="btn fill" id="f-mail" href="#">Email it</a>
+            <button class="btn" type="button" id="f-copy">Copy for a DM</button>
+            <a class="btn" href="https://www.instagram.com/thebennettdykstra_photography/">Open Instagram</a>
+          </div>
+        </div>
+        <p class="note" id="f-note">This writes your message so you can send it by email or DM.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="grain dark">
+  <p class="big" aria-hidden="true">Bennett Dykstra<b>.</b></p>
+  <div class="feet">
+    <span>Grand Rapids, Michigan</span>
+    <span id="feet-mid">© <span id="yr">2026</span> The Bennett Dykstra Photography</span>
+    <span><a href="https://www.instagram.com/thebennettdykstra_photography/">Instagram</a> · <a id="feet-mail" href="#">Email</a> · <a href="#home">Top</a></span>
+  </div>
+</footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+  <header><span id="lb-count">1 / 9</span><button class="x" id="lb-x" type="button">Close</button></header>
+  <div class="stage"><img id="lb-img" alt=""></div>
+  <footer><b id="lb-t"></b><span id="lb-n"></span></footer>
+  <button class="nav prev" id="lb-prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="nav next" id="lb-next" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<script>
+{
+  /* ================= EDIT HERE =================
+     EMAIL  : booking email shown in Inquire and the footer.
+     WORK   : one line per photo, in display order. file = image in /img; cat = sports | concerts (add more freely).
+     CATS   : the services index. img = background shown on hover (use real work from that category; "" for none). */
+  const EMAIL = "bjdykstra123@gmail.com";
+  const WORK = [
+    {file:"wvb.jpg",            cat:"sports",   title:"Cornerstone Women's Volleyball", note:"Golden Eagles volleyball", date:"09.30.26"},
+    {file:"bball-marian.jpg",   cat:"sports",   title:"Cornerstone Men's Basketball vs Marian", note:"Golden Eagles home court", date:""},
+    {file:"msoc-celebrate.jpg", cat:"sports",   title:"Cornerstone Men's Soccer", note:"Goal celebration at home", date:""},
+    {file:"jwb-2.jpg",          cat:"concerts", title:"Jack Wharff Band", note:"The Intersection, Grand Rapids", date:"10.07.26"},
+    {file:"gatorade.jpg",       cat:"sports",   title:"Sideline Details", note:"Cornerstone Athletics", date:""},
+    {file:"wsoc-2.jpg",         cat:"sports",   title:"Cornerstone Women's Soccer", note:"NAIA · WHAC soccer", date:"10.06.26"},
+    /* pair:true photos sit side by side in a full-width band that splits the gallery */
+    {file:"gti-night.jpg",      cat:"cars",     title:"Volkswagen Golf GTI", note:"Night car shoot", date:"", pair:true},
+    {file:"gti-tail.jpg",       cat:"cars",     title:"Golf GTI, tail light", note:"Night car shoot", date:"", pair:true},
+    /* wide:true spans two columns at the start of a section */
+    {file:"baseball.jpg",       cat:"sports",   title:"Cornerstone Baseball", note:"Player mini shoot at the field", date:"11.26", wide:true},
+    {file:"bw-wave.jpg",        cat:"sports",   title:"Cornerstone Men's Basketball at Home", note:"Cornerstone Athletics", date:"11.16.26"},
+    {file:"wvb-iwu.jpg",        cat:"sports",   title:"Women's Volleyball vs Indiana Wesleyan", note:"Cornerstone University", date:"10.02.26"},
+    {file:"msoc.jpg",           cat:"sports",   title:"Cornerstone Men's Soccer", note:"Away at Aquinas College", date:"10.21.26"},
+    {file:"msoc-strike.jpg",    cat:"sports",   title:"Cornerstone Men's Soccer", note:"Away at Aquinas College", date:""},
+    {file:"jwb-1.jpg",          cat:"concerts", title:"Jack Wharff Band", note:"The Intersection, Grand Rapids", date:"10.07.26"},
+    {file:"ian-harrison.jpg",   cat:"concerts", title:"Ian Harrison", note:"Opening for Jack Wharff Band", date:"10.07.26"}
+  ];
+  const CATS = [
+    {name:"Sports",      kicker:"Game days · media days",   text:"Game coverage and athlete mini shoots. Currently shooting Cornerstone Athletics.", img:"msoc-celebrate.jpg"},
+    {name:"Concerts",    kicker:"Live music",               text:"Live sets, openers and venue nights, close to the stage and comfortable in low light.", img:"jwb-2.jpg"},
+    {name:"Cars",        kicker:"Features · meets",         text:"Rolling shots, details and owner features for enthusiasts. Now booking.", img:"gti-night.jpg"},
+    {name:"Personals",   kicker:"Seniors · portraits",      text:"Senior pictures and personal portraits that look like you, not a template.", img:"about-courtside.jpg"},
+    {name:"Brand shoots",kicker:"Business · product",       text:"Product, team and business photos for social, web and print.", img:"about-courtside.jpg"}
+  ];
+  /* =============== END EDIT HERE =============== */
+
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* header goes solid after the hero */
+  const top = $('top');
+  const onScroll = () => {
+    top.classList.toggle('solid', scrollY > 40);
+    if (!reduce && innerWidth > 760) document.querySelectorAll('.float').forEach(f => f.style.transform = `translateY(${scrollY * parseFloat(f.dataset.speed)}px)`);
+  };
+  addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* work grid + filters */
+  let current = 'all', shown = WORK;
+  const cats = ['all', ...new Set(WORK.map(w => w.cat))];
+  $('filters').innerHTML = cats.map(c => `<button type="button" data-f="${c}" aria-pressed="${c==='all'}">${c==='all'?'All':c[0].toUpperCase()+c.slice(1)}<sup>${c==='all'?WORK.length:WORK.filter(w=>w.cat===c).length}</sup></button>`).join('');
+  /* masonry: each photo goes to the shortest column, so columns end together and reading stays left to right */
+  const ratio = {};
+  const card = (w, i, wide) => `<figure class="shot${wide ? ' wide' : ''}">
+      <button type="button" data-i="${i}" aria-label="View larger: ${esc(w.title)}"><img src="img/${esc(w.file)}" alt="${esc(w.title)}, ${esc(w.note)}" style="aspect-ratio:${ratio[w.file] || 1.4}"></button>
+      <figcaption><div><b>${esc(w.title)}</b><span>${esc(w.note)}</span></div><i>${esc(w.date)}</i></figcaption></figure>`;
+  const masonry = (items, start, n) => {
+    const cols = Array.from({length:n}, () => ({h:0, html:''}));
+    let lead = '';
+    /* wide:true at the start of a section spans two columns when there are three */
+    if (n >= 3 && items[0] && items[0].wide) {
+      lead = card(items[0], start, true);
+      const h = 2 / (ratio[items[0].file] || 2) + 0.2;
+      cols[0].h = cols[1].h = h;
+      items = items.slice(1); start += 1;
+    }
+    items.forEach((w, k) => {
+      const c = cols.reduce((a, b) => b.h < a.h - 0.01 ? b : a);
+      c.html += card(w, start + k); c.h += 1 / (ratio[w.file] || 1.4) + 0.22;
+    });
+    if (lead) return `<div class="grid" style="--cols:3"><div class="span2">${lead}<div class="sub"><div class="col">${cols[0].html}</div><div class="col">${cols[1].html}</div></div></div><div class="col">${cols[2].html}</div></div>`;
+    return `<div class="grid" style="--cols:${n}">${cols.map(c => `<div class="col">${c.html}</div>`).join('')}</div>`;
+  };
+  const render = () => {
+    shown = WORK.filter(w => current === 'all' || w.cat === current);
+    const n = innerWidth < 600 ? 1 : innerWidth < 1000 ? 2 : 3;
+    const a = shown.findIndex(w => w.pair);
+    let html;
+    if (a < 0) html = masonry(shown, 0, n);
+    else {
+      let b = a; while (b < shown.length && shown[b].pair) b++;
+      html = (a ? masonry(shown.slice(0, a), 0, n) : '')
+        + `<div class="pair">${shown.slice(a, b).map((w, k) => card(w, a + k)).join('')}</div>`
+        + (b < shown.length ? masonry(shown.slice(b), b, n) : '');
+    }
+    $('grid').innerHTML = html;
+  };
+  Promise.all(WORK.map(w => new Promise(res => { const im = new Image(); im.onload = () => { ratio[w.file] = im.naturalWidth / im.naturalHeight; res(); }; im.onerror = res; im.src = 'img/' + w.file; })))
+    .then(render);
+  render();
+  let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(render, 150); });
+  $('filters').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    current = b.dataset.f;
+    $('filters').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    render();
+  });
+
+  /* lightbox */
+  const lb = $('lb'); let idx = 0, lastFocus = null;
+  const show = i => {
+    idx = (i + shown.length) % shown.length; const w = shown[idx];
+    $('lb-img').src = 'img/' + w.file; $('lb-img').alt = w.title + ', ' + w.note;
+    $('lb-t').textContent = w.title; $('lb-n').textContent = [w.note, w.date].filter(Boolean).join(' · ');
+    $('lb-count').textContent = (idx + 1) + ' / ' + shown.length;
+  };
+  const open = i => { lastFocus = document.activeElement; show(i); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; $('lb-x').focus(); };
+  const close = () => { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; lastFocus && lastFocus.focus(); };
+  $('grid').addEventListener('click', e => { const b = e.target.closest('button[data-i]'); if (b) open(+b.dataset.i); });
+  $('lb-x').onclick = close; $('lb-prev').onclick = () => show(idx - 1); $('lb-next').onclick = () => show(idx + 1);
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('stage')) close(); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') show(idx - 1); else if (e.key === 'ArrowRight') show(idx + 1);
+    else if (e.key === 'Tab') { const f = [...lb.querySelectorAll('button')]; const a = f.indexOf(document.activeElement);
+      e.preventDefault(); f[(a + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus(); }
+  });
+  let sx = null;
+  lb.addEventListener('touchstart', e => sx = e.touches[0].clientX, {passive:true});
+  lb.addEventListener('touchend', e => { if (sx === null) return; const d = e.changedTouches[0].clientX - sx; if (Math.abs(d) > 50) show(idx + (d < 0 ? 1 : -1)); sx = null; });
+
+  /* services index with hover backgrounds */
+  $('catbg').innerHTML = [...new Set(CATS.map(c => c.img).filter(Boolean))].map(f => `<img data-f="${esc(f)}" src="img/${esc(f)}" alt="">`).join('');
+  $('cats').innerHTML = CATS.map((c, i) => `<li><button type="button" class="cat" data-c="${i}" aria-label="${esc(c.name)}: ${esc(c.text)}">
+      <span class="name">${esc(c.name)}</span><span class="desc"><small>${esc(c.kicker)}</small>${esc(c.text)}<br><span class="go">Book ${esc(c.name.toLowerCase())} →</span></span></button></li>`).join('');
+  const light = i => {
+    const f = CATS[i] ? CATS[i].img : null;
+    document.querySelectorAll('#catbg img').forEach(im => im.classList.toggle('on', !!f && im.dataset.f === f));
+    document.querySelectorAll('.cat').forEach(b => b.classList.toggle('on', b.dataset.c === String(i)));
+  };
+  $('cats').addEventListener('mouseover', e => { const b = e.target.closest('.cat'); if (b) light(b.dataset.c); });
+  $('cats').addEventListener('focusin', e => { const b = e.target.closest('.cat'); if (b) light(b.dataset.c); });
+  $('cats').addEventListener('mouseleave', () => light(-1));
+  $('cats').addEventListener('click', e => {
+    const b = e.target.closest('.cat'); if (!b) return;
+    const sel = $('f-type'); sel.selectedIndex = Math.min(+b.dataset.c, sel.options.length - 1);
+    $('inquire').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+  });
+
+  /* email in contact + footer */
+  if (EMAIL) {
+    $('direct').insertAdjacentHTML('afterbegin', `<a href="mailto:${esc(EMAIL)}"><small>Email</small><span>${esc(EMAIL)}</span></a>`);
+    $('feet-mail').href = 'mailto:' + EMAIL;
+  } else { $('feet-mail').remove(); $('f-mail').remove(); }
+
+  /* inquiry writer */
+  const val = id => $(id).value.trim();
+  $('inq').addEventListener('submit', e => {
+    e.preventDefault();
+    if (!val('f-name')) { $('f-name').focus(); $('f-name').placeholder = 'Add your name first'; return; }
+    const uses = [...document.querySelectorAll('#uses input:checked')].map(x => x.value);
+    const L = [`Hi Bennett, I'm ${val('f-name')}.`, `I'm interested in a ${val('f-type').toLowerCase()} shoot.`];
+    if (val('f-date')) L.push(`When: ${val('f-date')}`);
+    if (val('f-loc')) L.push(`Where: ${val('f-loc')}`);
+    if (uses.length) L.push(`Photos for: ${uses.join(', ')}`);
+    if (val('f-msg')) L.push('', val('f-msg'));
+    if (val('f-reach')) L.push('', `Reach me at: ${val('f-reach')}`);
+    L.push('', 'Could you send me a quote?');
+    const text = L.join('\n');
+    $('f-out').textContent = text; $('f-result').hidden = false;
+    if (EMAIL) $('f-mail').href = `mailto:${EMAIL}?subject=${encodeURIComponent(val('f-type') + ' shoot inquiry')}&body=${encodeURIComponent(text)}`;
+    $('f-note').textContent = EMAIL ? `If the email button doesn't open your mail app, send it to ${EMAIL}.` : 'Copy it into a DM.';
+  });
+  $('f-copy').addEventListener('click', async e => {
+    try { await navigator.clipboard.writeText($('f-out').textContent); e.target.textContent = 'Copied'; }
+    catch { e.target.textContent = 'Select the text above to copy'; }
+  });
+
+  $('yr').textContent = new Date().getFullYear();
+
+  /* reveal on scroll */
+  const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }), {threshold:.15});
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => io.observe(el));
+}
+</script>
+</body>
+</html>
